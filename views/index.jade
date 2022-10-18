@@ -1,0 +1,207 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Document
+    script(type='text/javascript', src='/javascripts/data.js')
+    style.
+      .parentBox {
+      /* border: 2px solid red; */
+      height: 96vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+      .box {
+      /* border: 2px solid red; */
+      height: 440px;
+      width: 676px;
+      background-image: url("/assets/4e13603209f5de09193fb87194fce7b8.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* margin: auto; */
+      box-sizing: border-box;
+      padding: 102px 0px 0px 192px;
+      position: relative;
+      transform: scale(.8);
+      }
+      .box input {
+      background: transparent;
+      border: none;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      }
+      .box .nik {
+      margin-bottom: 5px;
+      margin-top: 3px;
+      height: 29px;
+      font-size: 23px;
+      }
+      .box input:not(.nik) {
+      height: 17px;
+      margin-bottom: 1.5px;
+      margin-bottom: 1.9px;
+      }
+      .golDarah {
+      position: relative;
+      left: 103px;
+      top: -2px;
+      left: 118px;
+      width: 34px;
+      }
+      .profileimg {
+      height: 186px;
+      width: 146px;
+      }
+      .photoContainer {
+      position: absolute;
+      right: 3px;
+      top: 126px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      }
+      .region {
+      width: 80px;
+      }
+      .shrtdisc .tem {
+      text-align: center;
+      }
+      /*
+      .generatebtn {
+      position: relative;
+      left: 23px;
+      top: 94px;
+      font-size: 29px;
+      border-radius: 18px;
+      background-color: lightgreen;
+      box-shadow: 0px 0px 7px 0px #000000;
+      }
+      .generatebtn:hover{
+      cursor: grab;
+      } */
+      .generatebtn {
+      background: #3498db;
+      background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+      background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+      background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+      background-image: -o-linear-gradient(top, #3498db, #2980b9);
+      background-image: linear-gradient(to bottom, #3498db, #2980b9);
+      -webkit-border-radius: 28;
+      -moz-border-radius: 28;
+      border-radius: 28px;
+      text-shadow: 0px 0px 30px #666666;
+      font-family: Arial;
+      color: #ffffff;
+      font-size: 23px;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      position: relative;
+      left: 23px;
+      top: 94px;
+      border: 0;
+      cursor: grab;
+      }
+      .generatebtn:hover {
+      background: #3cb0fd;
+      background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+      text-decoration: none;
+      }
+      .region2 {
+      text-align: center;
+      }
+      .shrtdisc {
+      margin-top: 6px;
+      }
+      body {
+      background-color: #424242;
+      }
+  body
+    .parentBox
+      .box
+        .photoContainer
+          img.profileimg(src='')
+          .shrtdisc
+            input.region2(type='text', value='')
+            br
+            input.tem(type='text', value='')
+        input.nik(type='text', value='')
+        br
+        input.name(type='text', value='#{name}')
+        br
+        input.region(type='text' value='#{region}')
+        input.tem(type='text' value='#{tem}')
+        br
+        input.jenis(type='text', style='width:114px', value='' )
+        input.golDarah(type='text', value='')
+        br
+        input.alamat(type='text', value='')
+        br
+        input.rt(type='text', value='')
+        br
+        input.kel(type='text', value='')
+        br
+        input.kec(type='text', value='')
+        br
+        input.agama(type='text', value='')
+        br
+        input.status(type='text', value='')
+        br
+        input.pek(type='text', value='')
+        br
+        input.kew(type='text', value='WNI')
+        br
+        input.ber(type='text', value='')
+        br
+    script.
+      function randomIntFromInterval(min, max) { // min and max included
+      return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+      var rndInt = randomIntFromInterval(1, 49)
+      // console.log(rndInt)
+      var singleUserData = allUserData[rndInt]
+      // console.log(singleUserData);
+      var rndInt = randomIntFromInterval(1, 12)
+      var singleUserSource = userImages[rndInt]
+      // console.log(singleUserSource)
+      //- console.log(document.getElementsByClassName("profileimg"))
+      document.getElementsByClassName("profileimg")[0].src = "/" + singleUserSource.source
+      // console.log(document.getElementsByClassName("profileimg").src)
+      document.getElementsByClassName("nik")[0].value = (Math.random() * 100000000000000000).toString().substring(0,16)
+
+      //- ----------------------------------------------------------------------------------------------------------
+
+      if(document.getElementsByClassName("name")[0].value=="undefined"){
+      document.getElementsByClassName("name")[0].value = singleUserData.name
+      }
+      //- document.getElementsByClassName("name")[0].value = singleUserData.name
+        if(document.getElementsByClassName("region")[0].value=="undefined"){
+          document.getElementsByClassName("region")[0].value = "KENT"
+      }
+      //- document.getElementsByClassName("region")[0].value = "KENT"
+        if(document.getElementsByClassName("tem")[1].value =="undefined"){
+        document.getElementsByClassName("tem")[1].value = singleUserData.date1
+      }
+      //-  document.getElementsByClassName("tem")[1].value = singleUserData.date1
+
+      //- ---------------------------------------------------------------------------------------------------------------
+
+      document.getElementsByClassName("jenis")[0].value = singleUserSource.gender == "male" ? "laki-laki" : "perempuan"
+      document.getElementsByClassName("golDarah")[0].value = "O+"
+      document.getElementsByClassName("alamat")[0].value = singleUserData.address.substring(0,20)
+      document.getElementsByClassName("rt")[0].value = "004/026"
+      document.getElementsByClassName("kel")[0].value = singleUserData.region
+      document.getElementsByClassName("kec")[0].value = singleUserData.city
+      document.getElementsByClassName("agama")[0].value = ["islam", "kristen", "katholik", "hindu", "budha", "khonghucu", "penghayat kepercayaan", "lainnya"][Math.floor(Math.random() * 8)]
+      document.getElementsByClassName("status")[0].value = ["belum kawin", "kawin", "cerai hidup", "cerai mati"][Math.floor(Math.random() * 4)]
+      document.getElementsByClassName("pek")[0].value = "artis"
+      document.getElementsByClassName("ber")[0].value = "SEUMUR HIDUP"
+      //- ------------------------------------------side container--------------------------
+      document.getElementsByClassName("region2")[0].value = singleUserData.city1
+      document.getElementsByClassName("tem")[0].value = singleUserData.date
