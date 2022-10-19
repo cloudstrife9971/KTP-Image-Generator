@@ -7,10 +7,10 @@ router.get("/", function (req, res, next) {
     var name = req.query.name;
     var region = req.query.region;
     var data = req.params.data;
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(
-      "http://localhost:3000/users/?" +
+      "http://localhost:5000/users/?" +
         "name=" +
         name +
         "&" +
@@ -20,7 +20,11 @@ router.get("/", function (req, res, next) {
     await page.screenshot({ path: "KTP.jpeg" });
     await browser.close();
     res.download("KTP.jpeg");
+    // res.send("Welcome to KTP image Downloader")
+    
   })();
+ 
+  
 });
 
 module.exports = router;
