@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
     const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(
-      "http://localhost:5000/users/?" +
+      "http://localhost:"+process.env.PORT +"/users/?" +
         "name=" +
         name +
         "&" +
