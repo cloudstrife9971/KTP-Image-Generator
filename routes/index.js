@@ -27,7 +27,7 @@ router.get("/", function (req, res, next) {
       // "http://localhost:"+process.env.PORT +"/users/?" +
       //  "http://localhost:3000/users/?"
 
-      "http://localhost:3000/users/?" +
+      "http://localhost:"+process.env.PORT +"/users/?" +
         "name=" +
         name +
         "&" +
