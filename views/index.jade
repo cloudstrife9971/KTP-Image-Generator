@@ -155,7 +155,7 @@ html(lang='en')
         br
         input.pek(type='text', value='#{occupation}')
         br
-        input.kew(type='text', value='WNI')
+        input.kew(type='text', value='#{citiizenship}')
         br
         input.ber(type='text', value='#{idValidity}')
         br
@@ -237,14 +237,17 @@ html(lang='en')
        if(document.getElementsByClassName("pek")[0].value =="undefined"){
          document.getElementsByClassName("pek")[0].value = "artis"
       }
-    
+
+        if(document.getElementsByClassName("kew")[0].value  =="undefined"){
+           document.getElementsByClassName("kew")[0].value = "WIN"
+         }
       
        if(document.getElementsByClassName("ber")[0].value  =="undefined"){
         document.getElementsByClassName("ber")[0].value = "SEUMUR HIDUP"
       }
     
       
-      //- ------------------------------------------side container--------------------------
+      //- ------------------------------------------side container--------------------------//
        if(document.getElementsByClassName("region2")[0].value =="undefined"){
         document.getElementsByClassName("region2")[0].value = singleUserData.city1
       }
