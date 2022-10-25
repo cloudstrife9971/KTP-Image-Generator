@@ -128,51 +128,51 @@ html(lang='en')
         .photoContainer
           img.profileimg(src='')
           .shrtdisc
-            input.region2(type='text', value='')
+            input.region2(type='text', value='#{region2}')
             br
-            input.tem(type='text', value='')
-        input.nik(type='text', value='')
+            input.tem(type='text', value='#{issuanceIdDdate}')
+        input.nik(type='text', value='#{nik}')
         br
         input.name(type='text', value='#{name}')
         br
         input.region(type='text' value='#{region}')
-        input.tem(type='text' value='#{tem}')
+        input.tem(type='text' value='#{dob}')
         br
-        input.jenis(type='text', style='width:114px', value='' )
-        input.golDarah(type='text', value='')
+        input.jenis(type='text', style='width:114px', value='#{gender}' )
+        input.golDarah(type='text', value='#{bloodType}')
         br
-        input.alamat(type='text', value='')
+        input.alamat(type='text', value='#{address}')
         br
-        input.rt(type='text', value='')
+        input.rt(type='text', value='004/026')
         br
-        input.kel(type='text', value='')
+        input.kel(type='text', value='#{town}')
         br
-        input.kec(type='text', value='')
+        input.kec(type='text', value='#{district}')
         br
-        input.agama(type='text', value='')
+        input.agama(type='text', value='#{religion}')
         br
-        input.status(type='text', value='')
+        input.status(type='text', value='#{maritalStatus}')
         br
-        input.pek(type='text', value='')
+        input.pek(type='text', value='#{occupation}')
         br
         input.kew(type='text', value='WNI')
         br
-        input.ber(type='text', value='')
+        input.ber(type='text', value='#{idValidity}')
         br
     script.
       function randomIntFromInterval(min, max) { // min and max included
       return Math.floor(Math.random() * (max - min + 1) + min)
       }
       var rndInt = randomIntFromInterval(1, 49)
-      // console.log(rndInt)
+
       var singleUserData = allUserData[rndInt]
-      // console.log(singleUserData);
+  
       var rndInt = randomIntFromInterval(1, 12)
       var singleUserSource = userImages[rndInt]
-      // console.log(singleUserSource)
-      //- console.log(document.getElementsByClassName("profileimg"))
+
+   
       document.getElementsByClassName("profileimg")[0].src = "/" + singleUserSource.source
-      // console.log(document.getElementsByClassName("profileimg").src)
+
       document.getElementsByClassName("nik")[0].value = (Math.random() * 100000000000000000).toString().substring(0,16)
 
       //- ----------------------------------------------------------------------------------------------------------
@@ -190,18 +190,67 @@ html(lang='en')
       }
       //-  document.getElementsByClassName("tem")[1].value = singleUserData.date1
 
-      //- ---------------------------------------------------------------------------------------------------------------
 
-      document.getElementsByClassName("jenis")[0].value = singleUserSource.gender == "male" ? "laki-laki" : "perempuan"
-      document.getElementsByClassName("golDarah")[0].value = "O+"
-      document.getElementsByClassName("alamat")[0].value = singleUserData.address.substring(0,20)
-      document.getElementsByClassName("rt")[0].value = "004/026"
-      document.getElementsByClassName("kel")[0].value = singleUserData.region
-      document.getElementsByClassName("kec")[0].value = singleUserData.city
-      document.getElementsByClassName("agama")[0].value = ["islam", "kristen", "katholik", "hindu", "budha", "khonghucu", "penghayat kepercayaan", "lainnya"][Math.floor(Math.random() * 8)]
-      document.getElementsByClassName("status")[0].value = ["belum kawin", "kawin", "cerai hidup", "cerai mati"][Math.floor(Math.random() * 4)]
-      document.getElementsByClassName("pek")[0].value = "artis"
-      document.getElementsByClassName("ber")[0].value = "SEUMUR HIDUP"
+
+
+      //- ---------------------------------------------------------------------------------------------------------------
+        if(document.getElementsByClassName("jenis")[0].value =="undefined"){
+        document.getElementsByClassName("jenis")[0].value = singleUserSource.gender == "male" ? "laki-laki" : "perempuan"
+      }
+    
+
+       if(document.getElementsByClassName("golDarah")[0].value =="undefined"){
+        document.getElementsByClassName("golDarah")[0].value = "O+"
+      }
+     
+
+       if(document.getElementsByClassName("alamat")[0].value =="undefined"){
+        document.getElementsByClassName("alamat")[0].value = singleUserData.address.substring(0,20)
+      }
+      
+
+      //-  if(document.getElementsByClassName("rt")[0].value =="undefined"){
+      //-   document.getElementsByClassName("rt")[0].value = "004/026"
+      //- }
+      //- document.getElementsByClassName("rt")[0].value = "004/026"
+
+       if( document.getElementsByClassName("kel")[0].value =="undefined"){
+       document.getElementsByClassName("kel")[0].value = singleUserData.region
+      }
+    
+
+       if(document.getElementsByClassName("kec")[0].value =="undefined"){
+        document.getElementsByClassName("kec")[0].value = singleUserData.city
+      }
+ 
+
+       if(document.getElementsByClassName("agama")[0].value =="undefined"){
+        document.getElementsByClassName("agama")[0].value = ["islam", "kristen", "katholik", "hindu", "budha", "khonghucu", "penghayat kepercayaan", "lainnya"][Math.floor(Math.random() * 8)]
+      }
+     
+       
+       if(document.getElementsByClassName("status")[0].value  =="undefined"){
+        document.getElementsByClassName("status")[0].value = ["belum kawin", "kawin", "cerai hidup", "cerai mati"][Math.floor(Math.random() * 4)]
+      }
+    
+      
+       if(document.getElementsByClassName("pek")[0].value =="undefined"){
+         document.getElementsByClassName("pek")[0].value = "artis"
+      }
+    
+      
+       if(document.getElementsByClassName("ber")[0].value  =="undefined"){
+        document.getElementsByClassName("ber")[0].value = "SEUMUR HIDUP"
+      }
+    
+      
       //- ------------------------------------------side container--------------------------
-      document.getElementsByClassName("region2")[0].value = singleUserData.city1
-      document.getElementsByClassName("tem")[0].value = singleUserData.date
+       if(document.getElementsByClassName("region2")[0].value =="undefined"){
+        document.getElementsByClassName("region2")[0].value = singleUserData.city1
+      }
+   
+       
+       if(document.getElementsByClassName("tem")[0].value =="undefined"){
+       document.getElementsByClassName("tem")[0].value = singleUserData.date
+      }
+     
