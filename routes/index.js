@@ -25,16 +25,9 @@ router.get("/", function (req, res, next) {
     const page = await browser.newPage();
     await page.goto(
       // "http://localhost:"+process.env.PORT +"/users/?" +
-      //  "http://localhost:3000/users/?" +
-      //     "name=" +
-      //     name +
-      //     "&" +
-      //     "region=" +
-      //     region
+      //  "http://localhost:3000/users/?"
+
       "http://localhost:3000/users/?" +
-        "nik=" +
-        nik +
-        "&" +
         "name=" +
         name +
         "&" +
