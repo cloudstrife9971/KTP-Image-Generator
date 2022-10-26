@@ -173,38 +173,31 @@ html(lang='en')
    
       document.getElementsByClassName("profileimg")[0].src = "/" + singleUserSource.source
 
+        if(document.getElementsByClassName("nik")[0].value=="undefined"){
       document.getElementsByClassName("nik")[0].value = (Math.random() * 100000000000000000).toString().substring(0,16)
+      }
 
-      //- ----------------------------------------------------------------------------------------------------------
-
-      if(document.getElementsByClassName("name")[0].value=="undefined"){
+       if(document.getElementsByClassName("name")[0].value=="undefined"){
       document.getElementsByClassName("name")[0].value = singleUserData.name
       }
-      //- document.getElementsByClassName("name")[0].value = singleUserData.name
+    
         if(document.getElementsByClassName("region")[0].value=="undefined"){
           document.getElementsByClassName("region")[0].value = "KENT"
       }
-      //- document.getElementsByClassName("region")[0].value = "KENT"
+ 
         if(document.getElementsByClassName("tem")[1].value =="undefined"){
         document.getElementsByClassName("tem")[1].value = singleUserData.date1
       }
-      //-  document.getElementsByClassName("tem")[1].value = singleUserData.date1
-
-
-
-
-      //- ---------------------------------------------------------------------------------------------------------------
-        if(document.getElementsByClassName("jenis")[0].value =="undefined"){
+     
+       if(document.getElementsByClassName("jenis")[0].value =="undefined"){
         document.getElementsByClassName("jenis")[0].value = singleUserSource.gender == "male" ? "laki-laki" : "perempuan"
       }
     
-
        if(document.getElementsByClassName("golDarah")[0].value =="undefined"){
         document.getElementsByClassName("golDarah")[0].value = "O+"
       }
      
-
-       if(document.getElementsByClassName("alamat")[0].value =="undefined"){
+      if(document.getElementsByClassName("alamat")[0].value =="undefined"){
         document.getElementsByClassName("alamat")[0].value = singleUserData.address.substring(0,20)
       }
       
@@ -245,9 +238,9 @@ html(lang='en')
        if(document.getElementsByClassName("ber")[0].value  =="undefined"){
         document.getElementsByClassName("ber")[0].value = "SEUMUR HIDUP"
       }
-    
-      
-      //- ------------------------------------------side container--------------------------//
+
+       //- ------------------------------------------side container--------------------------
+       
        if(document.getElementsByClassName("region2")[0].value =="undefined"){
         document.getElementsByClassName("region2")[0].value = singleUserData.city1
       }

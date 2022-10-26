@@ -28,6 +28,9 @@ router.get("/", function (req, res, next) {
       //  "http://localhost:3000/users/?"
 
       "http://localhost:3000/users/?" +
+        "nik=" +
+        nik +
+        "&" +
         "name=" +
         name +
         "&" +
