@@ -78,7 +78,7 @@ router.get("/", function (req, res, next) {
     );
     await page.screenshot({ path: "KTP.jpeg" });
     await browser.close();
-    res.download("KTP.jpeg");
+     await res.download("KTP.jpeg");
     // res.send("Welcome to KTP image Downloader")
   })();
 });
