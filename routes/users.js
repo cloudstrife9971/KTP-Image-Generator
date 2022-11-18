@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function (req, res, next) {
+  // console.log(req.query.bloodType)
   res.render("index", {
     nik: req.query.nik,
     name: req.query.name,

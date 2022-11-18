@@ -4,30 +4,38 @@ const puppeteer = require("puppeteer");
 
 router.get("/", function (req, res, next) {
   (async () => {
-    var nik = req.query.nik;
-    var name = req.query.name;
-    var region = req.query.region;
-    var dob = req.query.dob;
-    var gender = req.query.gender;
-    var bloodType = req.query.bloodType;
-    var address = req.query.address;
-    var town = req.query.town;
-    var district = req.query.district;
-    var religion = req.query.religion;
-    var maritalStatus = req.query.maritalStatus;
-    var occupation = req.query.occupation;
-    var citiizenship = req.query.citiizenship;
-    var idValidity = req.query.idValidity;
-    var region2 = req.query.region2;
-    var issuanceIdDdate = req.query.issuanceIdDdate;
+    var nik = req.body.nik;
+    var name = req.body.name;
+    var region = req.body.region;
+    var dob = req.body.dob;
+    var gender = req.body.gender;
+    var bloodType = req.body.bloodType;
+    var address = req.body.address;
+    var town = req.body.town;
+    var district = req.body.district;
+    var religion = req.body.religion;
+    var maritalStatus = req.body.maritalStatus;
+    var occupation = req.body.occupation;
+    var citiizenship = req.body.citiizenship;
+    var idValidity = req.body.idValidity;
+    var region2 = req.body.region2;
+    var issuanceIdDdate = req.body.issuanceIdDdate;
 
+    if (bloodType != undefined) {
+      var bloodArray = [...bloodType];
+      mappedarray = bloodArray.map((x) => {
+        if (x == "+") {
+          return "%2B";
+        }
+        return x;
+      });
+      var stringedarray = mappedarray.join("").toString();
+    }
     const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
     const page = await browser.newPage();
     await page.goto(
-      // "http://localhost:"+process.env.PORT +"/users/?" +
-      //  "http://localhost:3000/users/?"
-
-      "http://localhost:"+process.env.PORT +"/users/?" +
+      "http://localhost:3000/users/?" +
+        // "http://localhost:"+process.env.PORT +"/users/?" +
         "nik=" +
         nik +
         "&" +
@@ -44,7 +52,7 @@ router.get("/", function (req, res, next) {
         gender +
         "&" +
         "bloodType=" +
-        bloodType +
+        stringedarray +
         "&" +
         "address=" +
         address +
@@ -76,11 +84,12 @@ router.get("/", function (req, res, next) {
         "issuanceIdDdate=" +
         issuanceIdDdate
     );
-    await page.screenshot({ path: "KTP.jpeg" });
+    await page.screenshot({ path: "KTP.jpeg",type:"jpeg" });
     await browser.close();
-    res.download("KTP.jpeg");
+    await res.download("KTP.jpeg");
     // res.send("Welcome to KTP image Downloader")
   })();
+  // res.download("KTP.jpeg");
 });
 
 module.exports = router;
