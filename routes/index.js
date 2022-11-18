@@ -35,7 +35,9 @@ router.get("/", function (req, res, next) {
     const page = await browser.newPage();
     await page.goto(
       // "http://localhost:3000/users/?" +
-        "http://localhost:"+process.env.PORT +"/users/?" +
+      "http://localhost:" +
+        process.env.PORT +
+        "/users/?" +
         "nik=" +
         nik +
         "&" +
@@ -84,12 +86,10 @@ router.get("/", function (req, res, next) {
         "issuanceIdDdate=" +
         issuanceIdDdate
     );
-    await page.screenshot({ path: "KTP.jpeg",type:"jpeg" });
+    await page.screenshot({ path: "KTP.jpeg", type: "jpeg" });
     await browser.close();
     await res.download("KTP.jpeg");
-    // res.send("Welcome to KTP image Downloader")
   })();
-  // res.download("KTP.jpeg");
 });
 
 module.exports = router;
