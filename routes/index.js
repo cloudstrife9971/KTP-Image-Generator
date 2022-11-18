@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const puppeteer = require("puppeteer");
 
-router.get("/", function (req, res, next) {
+router.post("/", function (req, res, next) {
   (async () => {
     var nik = req.body.nik;
     var name = req.body.name;
